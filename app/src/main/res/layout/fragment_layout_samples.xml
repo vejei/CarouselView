@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    tools:context=".LayoutSamplesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <io.github.vejei.carouselview.CarouselView
+            android:id="@+id/carousel_view_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:carouselMode="snap"
+            app:carouselMargin="10dp"
+            tools:layout_height="180dp"/>
+
+        <io.github.vejei.carouselview.CarouselView
+            android:id="@+id/carousel_view_right_side_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carousel_view_default"
+            app:carouselMode="preview"
+            app:carouselPreviewSide="right"
+            app:carouselPreviewOffset="30dp"
+            app:carouselMargin="10dp"
+            android:layout_marginTop="8dp"
+            tools:layout_height="180dp"/>
+
+        <io.github.vejei.carouselview.CarouselView
+            android:id="@+id/carousel_view_side_by_side_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carousel_view_right_side_preview"
+            app:carouselMode="preview"
+            app:carouselPreviewSide="sides"
+            app:carouselPreviewOffset="30dp"
+            app:carouselPreviewSideBySideStyle="normal"
+            app:carouselMargin="10dp"
+            android:layout_marginTop="8dp"
+            tools:layout_height="180dp"/>
+
+        <io.github.vejei.carouselview.CarouselView
+            android:id="@+id/carousel_view_side_by_side_preview_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carousel_view_side_by_side_preview"
+            app:carouselMode="preview"
+            app:carouselPreviewSide="sides"
+            app:carouselPreviewOffset="30dp"
+            app:carouselPreviewSideBySideStyle="scale"
+            app:carouselMargin="10dp"
+            android:layout_marginTop="8dp"
+            tools:layout_height="180dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
