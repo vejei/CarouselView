@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CarouselView</string>
+    <string name="main_layout_samples_button_text">Layout Samples</string>
+    <string name="main_programmatically_sample_button_text">Programmatically Sample</string>
+    <string name="main_indicator_sample">Indicator Sample</string>
+    <string name="programmatically_sample_add_carousel_button_text">Add CarouselView</string>
 </resources>
