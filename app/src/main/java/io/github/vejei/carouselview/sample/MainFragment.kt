@@ -31,6 +31,8 @@ class MainFragment : Fragment() {
         programmaticallySampleButton.setOnClickListener {
             hostActivity.addFragment(ProgrammaticallySampleFragment())
         }
-        indicatorSampleButton.setOnClickListener {  }
+        indicatorSampleButton.setOnClickListener {
+            hostActivity.addFragment(IndicatorSampleFragment())
+        }
     }
 }
