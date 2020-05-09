@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CarouselView">
+        <attr name="carouselMode" format="enum">
+            <enum name="snap" value="0"/>
+            <enum name="preview" value="1"/>
+        </attr>
+        <attr name="carouselPreviewSide" format="enum">
+            <enum name="sides" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+        <attr name="carouselPreviewSideBySideStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="scale" value="1"/>
+        </attr>
+        <attr name="carouselPreviewScaleFactor" format="float"/>
+        <attr name="carouselPreviewOffset" format="dimension"/>
+        <attr name="carouselMargin" format="dimension"/>
+    </declare-styleable>
+</resources>
