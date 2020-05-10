@@ -1,0 +1,84 @@
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+
+ext {
+    groupId = 'io.github.vejei.carouselview'
+    artifactId = 'carouselview'
+    versionName = '1.0.0-alpha'
+}
+
+version = ext.versionName
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+    classifier = 'javadoc'
+}
+
+/*artifacts {
+    archives javadocJar
+    archives sourcesJar
+}*/
+
+publishing {
+    publications {
+        release(MavenPublication) {
+//            artifact javadocJar
+            artifact("$buildDir/outputs/aar/carouselview-release.aar")
+            artifact sourcesJar
+            groupId project.ext.groupId
+            artifactId project.ext.artifactId
+            version project.ext.versionName
+
+            pom.withXml {
+                def dependenciesNode = asNode().getAt('dependencies')[0] ?: asNode().appendNode('dependencies')
+
+                // Iterate over the implementation dependencies (we don't want the test ones), adding a <dependency> node for each
+                configurations.implementation.allDependencies.each {
+                    // Ensure dependencies such as fileTree are not included.
+                    if (it.name != 'unspecified') {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
+                }
+            }
+        }
+    }
+}
+
+def properties = new Properties()
+properties.load(new FileInputStream("local.properties"))
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    publications = ['release']
+    publish = false
+
+    pkg {
+        repo = 'carouselview'
+        name = 'carouselview'
+        licenses = ['MIT']
+        desc = 'A carousel widget for Android based on ViewPager2.'
+        websiteUrl = 'https://github.com/vejei/CarouselView'
+        issueTrackerUrl = 'https://github.com/vejei/CarouselView/issues'
+        vcsUrl = 'https://github.com/vejei/CarouselView.git'
+
+        version {
+            name = project.ext.versionName
+            released = new Date()
+            vcsTag = project.ext.versionName
+        }
+    }
+}
