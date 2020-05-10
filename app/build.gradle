@@ -34,5 +34,5 @@ dependencies {
     implementation project(':carouselview')
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    implementation 'io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha'
+    implementation 'io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1'
 }
