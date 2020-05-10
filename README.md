@@ -50,7 +50,10 @@ And setup in your `Fragment` or `Activity`:
 val carouselView = view.findViewById<CarouselView>(R.id.carousel_view)
 
 val pageAdapter = PageAdapter()
-defaultCarouselView.adapter = pageAdapter
+carouselView.adapter = pageAdapter
+
+// Calling the start method to start carousel by passing in the interval.
+carouselView.start(3, TimeUnit.SECONDS)
 ```
 
 `PageAdapter` example:
