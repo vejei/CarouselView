@@ -123,6 +123,7 @@ indicator.itemCount = pageAdapter.pageCount
 |`carouselMargin`|Set carousel item margin.|`Dimension`|`10dp`|
 
 ## Screenshots
+![screenshot](./screenshots/screenshot.gif)
 
 ## Change Log
 [Change Log](./CHANGELOG.md)
